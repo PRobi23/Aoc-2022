@@ -1,3 +1,5 @@
+package day1
+
 val day1Input = """
     9609
     7601

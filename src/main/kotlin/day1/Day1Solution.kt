@@ -1,3 +1,5 @@
+package day1
+
 fun main(args: Array<String>) {
 
     val lines = day1Input.split("\n")
