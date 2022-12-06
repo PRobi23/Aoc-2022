@@ -47,54 +47,66 @@ fun main(args: Array<String>) {
 fun calculateScoreFirstPart(elfChoose: String, myChoose: String): Int {
     when (elfChoose) {
         elfRock -> {
-            return when (myChoose) {
-                myChoosePaper -> {
-                    8 // Win + Paper 6 + 2
-                }
-
-                myChooseScissors -> {
-                    3 // Lose + Scissors 0 + 3
-                }
-
-                else -> {
-                    4 // Draw + Rock 3 + 1
-                }
-            }
+            return calculateFromMyChoiceRock(myChoose)
         }
 
         elfPaper -> {
-            return when (myChoose) {
-                myChoosePaper -> {
-                    5  // Draw + Paper 3 + 2
-                }
-
-                myChooseScissors -> {
-                    9 // Win + Scissors 6 + 3
-                }
-
-                else -> {
-                    1 // Lose + Rock 0 + 1
-                }
-            }
+            return calculateFromMyChoicePaper(myChoose)
         }
 
         elfScissors -> {
-            return when (myChoose) {
-                myChoosePaper -> {
-                    2 // Lose + Paper 0 + 2
-                }
-
-                myChooseScissors -> {
-                    6 // Draw + Scissors 6 + 3
-                }
-
-                else -> {
-                    7 // Win + Rock 6 + 1
-                }
-            }
+            return calculateFromMyChoiceScissors(myChoose)
         }
 
         else -> return 0
+    }
+}
+
+private fun calculateFromMyChoiceScissors(myChoose: String): Int {
+    return when (myChoose) {
+        myChoosePaper -> {
+            2 // Lose + Paper 0 + 2
+        }
+
+        myChooseScissors -> {
+            6 // Draw + Scissors 6 + 3
+        }
+
+        else -> {
+            7 // Win + Rock 6 + 1
+        }
+    }
+}
+
+private fun calculateFromMyChoicePaper(myChoose: String): Int {
+    return when (myChoose) {
+        myChoosePaper -> {
+            5  // Draw + Paper 3 + 2
+        }
+
+        myChooseScissors -> {
+            9 // Win + Scissors 6 + 3
+        }
+
+        else -> {
+            1 // Lose + Rock 0 + 1
+        }
+    }
+}
+
+private fun calculateFromMyChoiceRock(myChoose: String): Int {
+    return when (myChoose) {
+        myChoosePaper -> {
+            8 // Win + Paper 6 + 2
+        }
+
+        myChooseScissors -> {
+            3 // Lose + Scissors 0 + 3
+        }
+
+        else -> {
+            4 // Draw + Rock 3 + 1
+        }
     }
 }
 
@@ -109,53 +121,65 @@ fun calculateScoreFirstPart(elfChoose: String, myChoose: String): Int {
 fun calculateScoreSecondPart(elfChoose: String, myChoose: String): Int {
     when (elfChoose) {
         elfRock -> {
-            return when (myChoose) {
-                myChooseWin -> {
-                    8 // Win + Paper 6 + 2
-                }
-
-                myChooseLose -> {
-                    3 // Lose + Scissors 0 + 3
-                }
-
-                else -> {
-                    4 // Draw + Rock 3 + 1
-                }
-            }
+            return calculateFromResultForRock(myChoose)
         }
 
         elfPaper -> {
-            return when (myChoose) {
-                myChooseDraw -> {
-                    5  // Draw + Paper 3 + 2
-                }
-
-                myChooseWin -> {
-                    9 // Win + Scissors 6 + 3
-                }
-
-                else -> {
-                    1 // Lose + Rock 0 + 1
-                }
-            }
+            return calculateFromResultForPaper(myChoose)
         }
 
         elfScissors -> {
-            return when (myChoose) {
-                myChooseLose -> {
-                    2 // Lose + Paper 0 + 2
-                }
-
-                myChooseDraw -> {
-                    6 // Draw + Scissors 6 + 3
-                }
-
-                else -> {
-                    7 // Win + Rock 6 + 1
-                }
-            }
+            return calculateFromResultScissors(myChoose)
         }
 
         else -> return 0
+    }
+}
+
+private fun calculateFromResultScissors(myChoose: String): Int {
+    return when (myChoose) {
+        myChooseLose -> {
+            2 // Lose + Paper 0 + 2
+        }
+
+        myChooseDraw -> {
+            6 // Draw + Scissors 6 + 3
+        }
+
+        else -> {
+            7 // Win + Rock 6 + 1
+        }
+    }
+}
+
+private fun calculateFromResultForPaper(myChoose: String): Int {
+    return when (myChoose) {
+        myChooseDraw -> {
+            5  // Draw + Paper 3 + 2
+        }
+
+        myChooseWin -> {
+            9 // Win + Scissors 6 + 3
+        }
+
+        else -> {
+            1 // Lose + Rock 0 + 1
+        }
+    }
+}
+
+private fun calculateFromResultForRock(myChoose: String): Int {
+    return when (myChoose) {
+        myChooseWin -> {
+            8 // Win + Paper 6 + 2
+        }
+
+        myChooseLose -> {
+            3 // Lose + Scissors 0 + 3
+        }
+
+        else -> {
+            4 // Draw + Rock 3 + 1
+        }
     }
 }
