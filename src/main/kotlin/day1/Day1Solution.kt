@@ -18,5 +18,7 @@ fun main(args: Array<String>) {
         }
     }
 
-    println(elfs.max())
+    elfs.sortDescending()
+
+    println(elfs.first() + elfs[1] + elfs[2])
 }
