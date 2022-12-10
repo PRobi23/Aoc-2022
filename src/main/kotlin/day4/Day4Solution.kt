@@ -7,12 +7,10 @@ fun main() {
     val lines = day4Input.split("\n").map {
         it.asRanges()
     }
-    /*var count = 0
-    lines.forEach {
-        if (it.first fullyOverlaps it.second || it.second fullyOverlaps it.first) {
-            count++
-        }
-    }*/
+    println(lines.count {
+        it.first fullyOverlaps it.second || it.second fullyOverlaps it.first
+    })
+
     println(lines.count { pair ->
         pair.first overlaps pair.second
     })
