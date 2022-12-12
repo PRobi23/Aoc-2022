@@ -1,7 +1,6 @@
 package day8
 
 fun main() {
-
     val day8Solution = Day8Solution(day8Input)
     println(day8Solution.getEdgeCountFromTreeHouse(day8Input) + day8Solution.getInteriorCount(day8Input))
 }
@@ -45,20 +44,11 @@ class Day8Solution(val input: String) {
                 val treeLineUntilEnd = treeLine.subList(j + 1, treeLineCount)
                 val treeLineUntilIndex = treeLine.take(j)
 
-                if (treeLineUntilEnd.all { tree > it }) {
-                    count++
-                    continue
-                }
-                if (treeLineUntilIndex.all { tree > it }) {
-                    count++
-                    continue
-                }
-
                 val column = treeHouse.mapIndexed { index, treeLines ->
                     Column(index, treeLines[j])
                 }
 
-                val columnUntilEnd = column.subList(i, column.count())
+                val columnUntilEnd = column.subList(i + 1, column.count())
                 val columnUntilIndex = column.take(i)
 
                 if (columnUntilIndex.all { tree > it.value }) {
@@ -67,6 +57,15 @@ class Day8Solution(val input: String) {
                 }
 
                 if (columnUntilEnd.all { tree > it.value }) {
+                    count++
+                    continue
+                }
+
+                if (treeLineUntilEnd.all { tree > it }) {
+                    count++
+                    continue
+                }
+                if (treeLineUntilIndex.all { tree > it }) {
                     count++
                     continue
                 }
