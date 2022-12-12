@@ -44,18 +44,27 @@ class Day8Test {
         val expected = 16
 
         Assert.assertEquals(
-            day8Solution.getEdgeCountFromTreeHouse(testInput),
+            day8Solution.getEdgeCountFromTreeHouse(),
             expected
         )
     }
 
-
     @Test
-    fun testGetInteriourCount() {
+    fun testGetInteriorCount() {
         val expected = 5
 
         Assert.assertEquals(
-            day8Solution.getInteriorCount(testInput),
+            day8Solution.getInteriorCount(),
+            expected
+        )
+    }
+
+    @Test
+    fun testGetMaxScenicScore() {
+        val expected = 8
+
+        Assert.assertEquals(
+            day8Solution.getMaxScenicScore(),
             expected
         )
     }
